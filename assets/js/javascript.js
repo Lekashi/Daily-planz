@@ -5,12 +5,19 @@ function currentDate() {
     var time = moment().format("hh:mm:ss a");
     $("#currentDay").text("Today's Date is " + day + " at " + time);
 }
+
 currentDate();
 setInterval(currentDate, 1000)
 
 var saveButton = $(".saveBtn")
 
 saveButton.on('click' , function () {
-
+    timePastFuture();
 console.log($(this).siblings(".description").val())
     })
+
+    function timePastFuture () {
+        if (currentTime >= 
+    }
+
+    var
