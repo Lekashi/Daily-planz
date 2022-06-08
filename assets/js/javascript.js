@@ -16,8 +16,8 @@ saveButton.on('click' , function () {
 console.log($(this).siblings(".description").val())
     })
 
-    function timePastFuture () {
-        if (currentTime >= 
-    }
+    // function timePastFuture () {
+    //     if (currentTime >= 
+    // }
 
-    var
+    // var
