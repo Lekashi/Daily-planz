@@ -23,12 +23,13 @@ for (let i = 9; i < 18; i++) {
 
     function localSave(res) {
         var taskEl = res.target;
-        var hour = $(taskEl).siblings('.time-block').attr('id');
+        var hour = $(taskEl).siblings('textarea').attr('id');
         var task = $(taskEl).siblings("textarea").val();
-        console.log(hour)
         localStorage.setItem(hour, task)
     }
 
     function localFetch() {
-        
+        for (let i = 9; i < 18; i++) {
+            $(`#${i}`).val(localStorage.getItem(i));
+        }
     }
