@@ -1,17 +1,22 @@
 setInterval(currentDate, 1000)
+setInterval(checkTime, 15000);
+checkTime();
 currentDate();
 localFetch();
 $(".saveBtn").on("click", localSave)
 var time = parseInt(moment().hour());
 
-for (let i = 9; i < 18; i++) {
-    var timeElArr = $(`#${i}`)
-    if (i > time) {
-        timeElArr.addClass("future");
-    } else if (i < time) {
-        timeElArr.addClass("past");
-    } else {
-        timeElArr.addClass("present");
+function checkTime() {
+    for (let i = 9; i < 18; i++) {
+        var timeElArr = $(`#${i}`)
+
+        if (i > time) {
+            timeElArr.addClass("future");
+        } else if (i < time) {
+            timeElArr.addClass("past");
+        } else {
+            timeElArr.addClass("present");
+        }
     }
 }
 
