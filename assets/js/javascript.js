@@ -1,32 +1,31 @@
-var currentTime = moment().format("hh:mm:ss a")
-var timeBlockEl = $(".time-block")
-timeBlockEl.each(function (i, block) {
-    var blockID = $[(block).attr("id")]
-    var localText = localStorage.getItem(parseInt(blockID)) || "";
-    $(block).children("textarea").val(localText)
-    console.log(localText)
-    console.log(blockID)
-}) 
-
-
-
-function currentDate() {
-    var day = moment().format("dddd MMMM, Do");
-    var time = moment().format("hh:mm:ss a");
-    $("#currentDay").text("Today's Date is " + day + " at " + time);
-}
-
-currentDate();
 setInterval(currentDate, 1000)
+currentDate();
+localFetch();
+var timeElArr = [];
+$(".saveBtn").on("click", localSave)
+var time = parseInt(moment().hour());
 
-var saveButton = $(".saveBtn")
+for (let i = 9; i < 18; i++) {
+    timeElArr[i] = $(`#${i}`)
+    if (i > time) {
+        timeElArr.addClass("future");
+    } else if (staticTime < currentTime) {
+        timeElArr.addClass("past");
+    } else {
+        timeElArr.addClass("present");
+    }
 
+    function currentDate() {
+        var day = moment().format("dddd MMMM, Do");
+        var currentTime = moment().format("hh:mm:ss a");
+        $("#currentDay").text("Today's Date is " + day + " at " + currentTime);
+    }
 
-$('.time-block').on('click', 'button', saveToLocal)
-function saveToLocal(event) {
-var element = event.target;
-var hour = $(element).parent('time-block').attr('id');
-var task = $(element).sibling("textarea").val();
-console.log(element)
-localStorage    
-}
+    function localSave(res) {
+        var taskEl = res.target;
+        var hour = $(taskEl).parent('time-block').attr('id');
+        var task = $(taskEl).sibling("textarea").val();
+        console.log(taskEl)
+        localStorage.setItem(hour, task)
+    }
+
