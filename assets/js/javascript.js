@@ -9,11 +9,12 @@ for (let i = 9; i < 18; i++) {
     timeElArr[i] = $(`#${i}`)
     if (i > time) {
         timeElArr.addClass("future");
-    } else if (staticTime < currentTime) {
+    } else if (i < currentTime) {
         timeElArr.addClass("past");
     } else {
         timeElArr.addClass("present");
     }
+}
 
     function currentDate() {
         var day = moment().format("dddd MMMM, Do");
