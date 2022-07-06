@@ -1,15 +1,14 @@
 setInterval(currentDate, 1000)
 currentDate();
 localFetch();
-var timeElArr = [];
 $(".saveBtn").on("click", localSave)
 var time = parseInt(moment().hour());
 
 for (let i = 9; i < 18; i++) {
-    timeElArr[i] = $(`#${i}`)
+    var timeElArr = $(`#${i}`)
     if (i > time) {
         timeElArr.addClass("future");
-    } else if (i < currentTime) {
+    } else if (i < time) {
         timeElArr.addClass("past");
     } else {
         timeElArr.addClass("present");
@@ -24,9 +23,12 @@ for (let i = 9; i < 18; i++) {
 
     function localSave(res) {
         var taskEl = res.target;
-        var hour = $(taskEl).parent('time-block').attr('id');
-        var task = $(taskEl).sibling("textarea").val();
-        console.log(taskEl)
+        var hour = $(taskEl).siblings('.time-block').attr('id');
+        var task = $(taskEl).siblings("textarea").val();
+        console.log(hour)
         localStorage.setItem(hour, task)
     }
 
+    function localFetch() {
+        
+    }
