@@ -1,9 +1,7 @@
 # Daily-planz
 
 ### Description:
-This is a Daily plannwe website that takes in account time with a and save it for future use. This site is unfinished and subject to change.
-
-### To do list:
+This is a Daily planner website that takes in account time with a and save it for future use. When loaded on to the site you willl have time slots from 9am to 5pm you are able to add text into the text boxes and click the save button and next time you load on the website your data is saved and displayed.
 
 
 ### Technology used:
