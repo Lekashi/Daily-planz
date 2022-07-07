@@ -19,21 +19,21 @@ function checkTime() {
     }
 }
 
-    function currentDate() {
-        var day = moment().format("dddd MMMM, Do");
-        var currentTime = moment().format("hh:mm:ss a");
-        $("#currentDay").text("Today's Date is " + day + " at " + currentTime);
-    }
+function currentDate() {
+    var day = moment().format("dddd MMMM, Do");
+    var currentTime = moment().format("hh:mm:ss a");
+    $("#currentDay").text("Today's Date is " + day + " at " + currentTime);
+}
 
-    function localSave(res) {
-        var taskEl = res.target;
-        var hour = $(taskEl).siblings('textarea').attr('id');
-        var task = $(taskEl).siblings("textarea").val();
-        localStorage.setItem(hour, task)
-    }
+function localSave(res) {
+    var taskEl = res.target;
+    var hour = $(taskEl).siblings('textarea').attr('id');
+    var task = $(taskEl).siblings("textarea").val();
+    localStorage.setItem(hour, task)
+}
 
-    function localFetch() {
-        for (let i = 9; i < 18; i++) {
-            $(`#${i}`).val(localStorage.getItem(i));
-        }
+function localFetch() {
+    for (let i = 9; i < 18; i++) {
+        $(`#${i}`).val(localStorage.getItem(i));
     }
+}
