@@ -1,15 +1,14 @@
 setInterval(currentDate, 1000)
 setInterval(checkTime, 15000);
+var time = parseInt(moment().hour());
+$(".saveBtn").on("click", localSave)
 checkTime();
 currentDate();
 localFetch();
-$(".saveBtn").on("click", localSave)
-var time = parseInt(moment().hour());
 
 function checkTime() {
     for (let i = 9; i < 18; i++) {
         var timeElArr = $(`#${i}`)
-
         if (i > time) {
             timeElArr.addClass("future");
         } else if (i < time) {
